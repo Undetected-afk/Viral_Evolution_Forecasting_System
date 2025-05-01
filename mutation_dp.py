@@ -4,7 +4,9 @@ import numpy as np
 
 def trace_mutation_path(fasta_file):
     # Read sequences
-    sequences = list(SeqIO.parse(fasta_file, "fasta"))
+    import io
+    sequences = list(SeqIO.parse(io.StringIO(fasta_file.getvalue().decode("utf-8")), "fasta"))
+
     
     if len(sequences) < 2:
         return "Need at least 2 sequences for mutation tracing."
