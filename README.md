@@ -1,6 +1,3 @@
-# Add a README.md and update structure to make it GitHub-ready
-
-readme_md = '''
 # Viral Evolution & Mutation Forecasting System (VEMFS)
 
 This project is a dynamic programming-based bioinformatics application designed to:
@@ -44,20 +41,3 @@ This project is a dynamic programming-based bioinformatics application designed 
 ---
 
 Built with ❤️ for real-world bioinformatics.
-'''
-
-readme_path = "/mnt/data/Viral_Evolution_Forecasting_System/README.md"
-with open(readme_path, "w") as f:
-    f.write(readme_md.strip())
-
-# Repackage project folder as GitHub-ready zip
-github_ready_zip = "/mnt/data/Viral_Evolution_Forecasting_System_GITHUB_READY.zip"
-
-with zipfile.ZipFile(github_ready_zip, 'w') as zipf:
-    for root, _, files in os.walk("/mnt/data/Viral_Evolution_Forecasting_System"):
-        for file in files:
-            full_path = os.path.join(root, file)
-            arcname = os.path.relpath(full_path, "/mnt/data")
-            zipf.write(full_path, arcname=arcname)
-
-github_ready_zip
