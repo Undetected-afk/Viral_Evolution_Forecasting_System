@@ -17,7 +17,8 @@ def score_mutation(seq1, seq2):
     return score
 
 def build_mutation_tree(fasta_file):
-    records = list(SeqIO.parse(fasta_file, "fasta"))
+    import io
+    records = list(SeqIO.parse(io.StringIO(fasta_file.getvalue().decode("utf-8")), "fasta"))
     sequences = [str(rec.seq) for rec in records]
     names = [rec.id for rec in records]
 
