@@ -1,0 +1,7 @@
+streamlit
+biopython
+numpy
+networkx
+matplotlib
+py3Dmol
+plotly
